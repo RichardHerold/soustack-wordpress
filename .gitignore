@@ -1,0 +1,14 @@
+.DS_Store
+node_modules
+vendor
+dist
+.next
+coverage
+*.log
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+composer.lock
+.env
+.env.local
+.env.*.local
