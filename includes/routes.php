@@ -26,6 +26,7 @@ function soustack_wordpress_query_vars(array $vars): array
 {
     $vars[] = 'soustack';
     $vars[] = 'soustack_slug';
+    $vars[] = 'post';
     return $vars;
 }
 add_filter('query_vars', 'soustack_wordpress_query_vars');
@@ -48,6 +49,10 @@ function soustack_wordpress_template_redirect(): void
     }
 
     $post_id = get_query_var('p');
+    if (! $post_id) {
+        $post_id = get_query_var('post');
+    }
+
     if (! $post_id && $slug) {
         $post = get_page_by_path($slug, OBJECT, 'post');
         if ($post) {
